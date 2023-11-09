@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private let homeFeedTables: UITableView = {
+    private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
@@ -18,15 +18,17 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        view.addSubview(homeFeedTables)
+        view.addSubview(homeFeedTable)
         
-        homeFeedTables.delegate = self
-        homeFeedTables.dataSource = self
+        homeFeedTable.delegate = self
+        homeFeedTable.dataSource = self
+        
+        homeFeedTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.height, height: 400))
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        homeFeedTables.frame = view.bounds
+        homeFeedTable.frame = view.bounds
     }
 
 }
