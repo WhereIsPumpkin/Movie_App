@@ -54,6 +54,13 @@ final class HeroHeaderUIView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Layout
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        heroImageView.frame = bounds
+    }
+    
     // MARK: Private Functions
     
     private func addGradient() {
@@ -81,12 +88,5 @@ final class HeroHeaderUIView: UIView {
         
         NSLayoutConstraint.activate(playButtonConstraints)
         NSLayoutConstraint.activate(downloadButtonConstraints)
-    }
-    
-    // MARK: Layout
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        heroImageView.frame = bounds
     }
 }

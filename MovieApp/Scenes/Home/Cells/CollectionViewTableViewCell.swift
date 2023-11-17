@@ -39,6 +39,8 @@ final class CollectionViewTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - LifeCycle
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.frame = contentView.bounds
@@ -46,11 +48,10 @@ final class CollectionViewTableViewCell: UITableViewCell {
     
     // MARK: Public Functions
     
-    /// Configures the cell with an array of titles.
     public func configure(with titles: [Title]) {
         self.titles = titles
-        DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
+        DispatchQueue.main.async { 
+            self.collectionView.reloadData()
         }
     }
 }

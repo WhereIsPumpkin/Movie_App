@@ -16,7 +16,7 @@ enum APIError: Error {
     case failedTogetData
 }
 
-class APICaller {
+final class APICaller {
     static let shared = APICaller()
     
     func getTrendingMovies(completion: @escaping (Result<[Title],Error>) -> Void) {
